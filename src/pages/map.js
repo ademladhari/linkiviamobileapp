@@ -86,18 +86,18 @@ export default function Map({ route }) {
   };
   useEffect(() => {
     if (isFocused) {
-        setWaypoints(destination);  // Update waypoints when the screen is focused
-        fetchRoute();  // Optionally, fetch the route again if needed
+      setWaypoints(destination); // Update waypoints when the screen is focused
+      fetchRoute(); // Optionally, fetch the route again if needed
     }
-}, [isFocused, destination]);
+  }, [isFocused, destination]);
 
-  return ( 
+  return (
     <View style={{ flex: 1 }}>
       <MapView
         style={{ flex: 1 }}
         initialRegion={{
-          latitude: currentLocation ? currentLocation.latitude : 34.0,
-          longitude: currentLocation ? currentLocation.longitude : 9.0,
+          latitude: 36.8065,
+          longitude: 10.1815,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}

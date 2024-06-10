@@ -1,5 +1,3 @@
-import { LinearGradient } from "expo-linear-gradient";
-import { StatusBar } from "expo-status-bar";
 import {
   Button,
   Image,
@@ -13,10 +11,9 @@ import {
   KeyboardAvoidingView,
 } from "react-native";
 import Carddelivery from "../components/Carddelivery";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigation } from "@react-navigation/native";
-import { fetchMedications } from "../redux/actions/actiondata";
+
 import { getStatusAddress, getStatusLabName } from "../utils/api/functions";
 import {
   handleCheckBoxPress,
@@ -30,7 +27,6 @@ import { CountContext } from "../../App";
 import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function CollectedPage({ navigation }) {
-  const currentDate = new Date();
   const [destinations, setDestinations] = useState([]);
 
   const [checkedCards, setCheckedCards] = useState([]);
@@ -43,12 +39,7 @@ export default function CollectedPage({ navigation }) {
   const [userID, setUserID] = useState(null);
   const [searchBy, setSearchBy] = useState("requestName");
   // Format date as desired (e.g., "February 28, 2024")
-  const formattedDate = currentDate.toLocaleDateString("en-EUROPE", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
+
   const updateStatusForChecked = () => {
     // Update filteredDemandes after modifying them
     console.log(checkedCards);
@@ -61,7 +52,6 @@ export default function CollectedPage({ navigation }) {
     });
     setfilteredDemandes(updatedFilteredDemandes);
   };
-
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -189,7 +179,7 @@ export default function CollectedPage({ navigation }) {
       <KeyboardAvoidingView
         style={{
           position: "absolute",
-          top: "-6%",
+          top: -45,
           right: 15,
           zIndex: 60,
           flex: 1,
@@ -240,9 +230,8 @@ export default function CollectedPage({ navigation }) {
             filteredDemandes.map(
               (demande, index) =>
                 demande.Status === "collected" && (
-                  <View className="h-[90px] my-3">
+                  <View key={index} className="h-[90px] my-3">
                     <TouchableOpacity
-                      key={index}
                       onLongPress={() => handleDoublePress(demande)}
                       onPress={() => {
                         handleCheckBoxPress(

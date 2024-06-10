@@ -1,4 +1,4 @@
-import { FETCH_MEDICATIONS } from "../store/types ";
+import { FETCH_DEMANDS } from "../store/types ";
 
 const initialState = {
   demandes: {},
@@ -6,7 +6,7 @@ const initialState = {
 
 const medicationReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_MEDICATIONS:
+    case FETCH_DEMANDS:
       return {
         ...state,
         demandes: action.payload.demandes,

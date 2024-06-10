@@ -51,7 +51,7 @@ export default function PendingPage({ navigation }) {
     month: "long",
     year: "numeric",
   });
- 
+
   const updateStatusForChecked = () => {
     // Update filteredDemandes after modifying them
     const updatedFilteredDemandes = filteredDemandes.map((demande) => {
@@ -187,14 +187,14 @@ export default function PendingPage({ navigation }) {
       <KeyboardAvoidingView
         style={{
           position: "absolute",
-          top: "-6%",
+          top: -45,
           right: 15,
           zIndex: 60,
           flex: 1,
           width: 50,
         }}
       >
-      {console.log('destipage',destinations)}
+        {console.log("destipage", destinations)}
         <TouchableOpacity
           onPress={() =>
             navigation.navigate("map", {
@@ -235,14 +235,12 @@ export default function PendingPage({ navigation }) {
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }
         >
-        
           {demandes !== null && filteredDemandes.length > 0 ? (
             filteredDemandes.map(
               (demande, index) =>
                 demande.Status === "affected" && (
-                  <View className="h-[90px] my-3">
+                  <View key={index} className="h-[90px] my-3">
                     <TouchableOpacity
-                      key={index}
                       onLongPress={() => handleDoublePress(demande)}
                       onPress={() => {
                         handleCheckBoxPressForPending(
@@ -250,7 +248,7 @@ export default function PendingPage({ navigation }) {
                           demande.departurelab,
                           checkedCards,
                           setCheckedCards,
-                          filteredDemandes,
+                          filteredDemandes
                           // Assuming this is your array of all demands
                         );
                         setshowCheckbox(true);
@@ -289,7 +287,12 @@ export default function PendingPage({ navigation }) {
           marginbottom={"mb-2"}
           state={"collected"}
           onPress={() => {
-            handleShowCheckedIds(checkedCards, dispatch, "collected",filteredDemandes);
+            handleShowCheckedIds(
+              checkedCards,
+              dispatch,
+              "collected",
+              filteredDemandes
+            );
             updateStatusForChecked();
             resetCheckBoxs();
           }}
@@ -307,17 +310,3 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent", // Set background color to transparent to see the gradient
   },
 });
-function CollectedCount(demandes) {
-  if (!demandes || !Array.isArray(demandes)) return 0;
-
-  return demandes.reduce((count, demande) => {
-    return demande.Status === "collected" ? count + 1 : count;
-  }, 0);
-}
-function PendingCount(demandes) {
-  if (!demandes || !Array.isArray(demandes)) return 0;
-
-  return demandes.reduce((count, demande) => {
-    return demande.Status === "affected" ? count + 1 : count;
-  }, 0);
-}

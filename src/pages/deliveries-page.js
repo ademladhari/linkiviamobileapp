@@ -111,7 +111,7 @@ export default function DeliveryPage({ navigation }) {
       demande: demande,
       updateDemandes: updateDemandeInState,
       page: "Delivery",
-    })
+    });
   };
 
   const updateDemandeInState = (updatedDemande) => {
@@ -192,7 +192,6 @@ export default function DeliveryPage({ navigation }) {
                   place={item.DepartureAddress}
                   Governorate={item.Governorate}
                   DepartureGovernorate={item.DepartureGovernorate}
-                  color={"p"}
                 />
               </TouchableOpacity>
             </View>

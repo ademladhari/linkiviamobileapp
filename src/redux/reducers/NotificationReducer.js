@@ -1,4 +1,4 @@
-import { FETCH_MEDICATIONS, FETCH_NOTITFICATIONS } from "../store/types ";
+import { FETCH_DEMANDS, FETCH_NOTITFICATIONS } from "../store/types ";
 
 const initialState = {
   notification: {},

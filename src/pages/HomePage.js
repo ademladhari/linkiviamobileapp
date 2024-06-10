@@ -2,7 +2,6 @@ import { LinearGradient } from "expo-linear-gradient";
 import { StatusBar } from "expo-status-bar";
 import {
   Button,
-  Image,
   ScrollView,
   StyleSheet,
   Text,
@@ -264,7 +263,7 @@ export default function HomePage({ navigation }) {
             xLabelsOffset={-3}
             bezier
           />
-          <Text className="text-lg text-center">Container 1</Text>
+          <Text className="text-lg text-center">Container 2</Text>
 
           <LineChart
             data={data2}
@@ -275,7 +274,7 @@ export default function HomePage({ navigation }) {
             bezier
             xLabelsOffset={-3}
           />
-          <Text className="text-lg text-center">Container 1</Text>
+          <Text className="text-lg text-center">Container 3</Text>
 
           <LineChart
             data={data3}

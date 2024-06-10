@@ -1,5 +1,5 @@
 import { data, fetchData } from "../../services/ServiceData"; // Assuming you renamed the function to fetchData
-import { FETCH_MEDICATIONS } from "../store/types ";
+import { FETCH_DEMANDS } from "../store/types ";
 // Action Creator for fetching medications
 export const fetchMedications = (page) => {
   return async (dispatch) => {
@@ -9,14 +9,14 @@ export const fetchMedications = (page) => {
 
       // Dispatch the action with the medications data
       dispatch({
-        type: FETCH_MEDICATIONS,
+        type: FETCH_DEMANDS,
         payload: response,
       });
     } catch (error) {
       // Handle any errors
       console.error("Error fetching medications:", error);
       // Optionally dispatch an error action
-      // dispatch({ type: FETCH_MEDICATIONS_ERROR, payload: error.message });
+      // dispatch({ type: FETCH_DEMANDS_ERROR, payload: error.message });
     }
   };
 };

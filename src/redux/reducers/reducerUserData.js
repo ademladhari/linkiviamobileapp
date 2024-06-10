@@ -1,5 +1,5 @@
 import { fetchUserData } from "../actions/actionUserData";
-import { FETCH_MEDICATIONS, FETCH_USERDATA } from "../store/types ";
+import { FETCH_DEMANDS, FETCH_USERDATA } from "../store/types ";
 
 const initialState = {
   UserData: {},
