@@ -268,7 +268,6 @@ export default function PendingPage({ navigation }) {
                         place={getStatusAddress(demande)}
                         Governorate={demande.Governorate}
                         DepartureGovernorate={demande.DepartureGovernorate}
-                        color={"p"}
                       />
                     </TouchableOpacity>
                   </View>

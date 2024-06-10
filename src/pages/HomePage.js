@@ -1,5 +1,3 @@
-import { LinearGradient } from "expo-linear-gradient";
-import { StatusBar } from "expo-status-bar";
 import {
   Button,
   ScrollView,
@@ -15,7 +13,6 @@ import {
 } from "react-native";
 import { Dimensions } from "react-native";
 const screenWidth = Dimensions.get("window").width;
-import CardSomething from "../components/StatCard";
 import { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -25,6 +22,7 @@ import { LineChart } from "react-native-chart-kit";
 import { fetchUserData } from "../redux/actions/actionUserData";
 import { userdatacount } from "../services/ServiceData";
 import { FontAwesome5 } from "@expo/vector-icons";
+import StatCard from "../components/StatCard";
 export default function HomePage({ navigation }) {
   const currentDate = new Date();
   const [count, setCount] = useState(0);
@@ -228,22 +226,21 @@ export default function HomePage({ navigation }) {
           <Text className="text-base ml-4">{formattedDate}</Text>
         </View>
         <KeyboardAvoidingView className="flex w-[full]   flex-row rounded-xl">
-          <CardSomething
-            img={require("../../assets/pendinggg.png")}
+          <StatCard
             deliveredOrPending={"collected"}
-            color="red"
-            colorText="text-[red]"
-            name={"truck-fast"}
+            color="green"
+            colorText="text-[green]"
+            name={"truck-check"}
             userID={userID}
             page="collected"
             demandes={demandes}
             number={count.collectedCount}
           />
-          <CardSomething
+          <StatCard
             deliveredOrPending={"pending"}
-            color="green"
-            colorText={"green-600"}
-            name={"truck-check"}
+            color="red"
+            colorText={"red-600"}
+            name={"truck-fast"}
             userID={userID}
             page="Pending"
             demandes={demandes}

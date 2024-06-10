@@ -1,6 +1,7 @@
 import { patchData } from "../../redux/actions/ActionUpdate";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { getApi } from "./api";
+import { Alert } from "react-native";
 
 export const handleCheckBoxPress = (cardId, checkedCards, setCheckedCards) => {
   if (checkedCards.includes(cardId)) {
@@ -122,9 +123,16 @@ export const updateDemandes = async (
         },
       }
     );
-    return response; // Assuming you want to return the response data
+    console.log(response); // Assuming you want to return the response data
+
+    return response;
   } catch (error) {
-    console.error("Error fetching data:", error);
-    throw error; // Re-throw the error to handle it elsewhere if needed
+    Alert.alert(
+      "Error", // Title of the alert
+      "The User Doesn't have the necessary Quota.", // Message of the alert
+      [{ text: "OK", onPress: () => console.log("OK Pressed") }],
+      { cancelable: false }
+    );
+    throw "error"; // Re-throw the error to handle it elsewhere if needed
   }
 };

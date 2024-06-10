@@ -256,7 +256,6 @@ export default function CollectedPage({ navigation }) {
                         place={getStatusAddress(demande)}
                         Governorate={demande.Governorate}
                         DepartureGovernorate={demande.DepartureGovernorate}
-                        color={"p"}
                       />
                     </TouchableOpacity>
                   </View>

@@ -4,7 +4,7 @@ import React from "react";
 import { KeyboardAvoidingView, TouchableOpacity } from "react-native";
 import { Image, Text, View } from "react-native";
 
-const CardSomething = (prop) => {
+const StatCard = (prop) => {
   const { number, deliveredOrPending, color, name, colorText, page, userID } =
     prop;
   const navigation = useNavigation(); // Get the navigation object
@@ -38,4 +38,4 @@ const CardSomething = (prop) => {
   );
 };
 
-export default CardSomething;
+export default StatCard;

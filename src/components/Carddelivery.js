@@ -97,7 +97,7 @@ const Carddelivery = (props) => {
 
         <View style={{ flex: 4 }}>
           <Text style={{ fontSize: 18 }} numberOfLines={1} ellipsizeMode="tail">
-            {demande.DemandID}
+            {demande.requestName}
           </Text>
           <Text
             style={{ fontSize: 14, marginVertical: 6 }}
